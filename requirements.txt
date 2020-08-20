@@ -1,0 +1,7 @@
+python-dotenv
+factory_boy
+faker-e164
+marshmallow-dataclass
+numpy
+pandas
+shopifyAPI
