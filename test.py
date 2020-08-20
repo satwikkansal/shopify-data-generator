@@ -1,5 +1,7 @@
 import json
 from factories import CustomerFactory
+from models import Customer
+
 from shopify_utils import publish, delete
 
 import shopify
@@ -73,8 +75,8 @@ cx_data = json.loads("""{
     }
   ]
 }""")
-#cx = Customer(**cx_data["customers"][0])
-#cx = Customer.Schema().load(cx_data["customers"][0])
+cx = Customer(**cx_data["customers"][0])
+cx = Customer.Schema().load(cx_data["customers"][0])
 
 random_cx = CustomerFactory()
 upstream_cx = publish(random_cx, shopify.Customer)

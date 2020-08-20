@@ -32,3 +32,16 @@ def delete(obj, target_class):
         print("[DELETED] object #{} of class {}".format(obj.id, upstream_obj.__class__.__name__))
     else:
         print("[WARNING]: object #{} of class {} not found.".format(obj.id, target_class))
+
+
+def get_all_resources(target_class):
+    results = []
+    page = target_class.find()
+    results += page
+
+    while page.has_next_page():
+        page = target_class.find(from_=page.next_url)
+        results += page
+
+    return results
+
