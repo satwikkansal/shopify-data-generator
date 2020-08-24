@@ -4,10 +4,18 @@ import shopify
 
 load_dotenv()
 
-API_KEY = os.getenv('API_KEY')
-PASSWORD = os.getenv('PASSWORD')
-SHOP_NAME = os.getenv('SHOP_NAME')
-API_VERSION = os.getenv('API_VERSION')
+
+def fetch_mandatory_env_var(key):
+    val = os.getenv(key)
+    if not val:
+        raise ValueError(f"Please set {API_KEY} in the .env file or environment variables")
+    return val
+
+
+API_KEY = fetch_mandatory_env_var('API_KEY')
+PASSWORD = fetch_mandatory_env_var('PASSWORD')
+SHOP_NAME = fetch_mandatory_env_var('SHOP_NAME')
+API_VERSION = fetch_mandatory_env_var('API_VERSION')
 
 shop_url = F"https://{API_KEY}:{PASSWORD}@{SHOP_NAME}.myshopify.com/admin/api/{API_VERSION}"
 shopify.ShopifyResource.set_site(shop_url)
@@ -44,4 +52,3 @@ def get_all_resources(target_class):
         results += page
 
     return results
-
