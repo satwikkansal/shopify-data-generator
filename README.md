@@ -12,7 +12,7 @@ PASSWORD=''
 SHOP_NAME='my-awesome-store-for-dev'
 API_VERSION='2020-07'
 ```
-- Import some products and customers through Shopify Dashboard. You can use the exports provided in the data folder (generated using [simple-sample-data](https://apps.shopify.com/simple-sample-data) app). 
+- Import some products and customers through Shopify Dashboard. You can use the exports provided in the [data folder](/data) (generated using [simple-sample-data](https://apps.shopify.com/simple-sample-data) app). 
 - Install the dependencies
 ```shell script
 $ pip install -r requirements.txt
